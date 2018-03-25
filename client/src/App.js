@@ -45,10 +45,10 @@ class App extends Component {
                   _id: data._id,
                   email: data.email,
                   token: token
-                }
+                },
+                error: undefined
               }));
             }  
-            console.log(this.state);  
           })
         }
         else {
@@ -60,7 +60,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.user.email ? <Me /> : <Login handleLoginUser= {this.handleLoginUser}/>}
+        {this.state.user.email ? <Me data={this.state.user}/> : <Login handleLoginUser= {this.handleLoginUser}/>}
         {this.state.error && <p>{this.state.error}</p>}
       </div>
     );
